@@ -1,0 +1,103 @@
+/* ==========================================================================
+   Mobile nav area
+   ========================================================================== */
+
+.mobile-nav-area {
+    font-size: 15px;
+    line-height: 1.2em;
+
+    .widgettitle {
+        text-transform: uppercase;
+        font-size: 15px;
+        letter-spacing: 1px;
+        margin-bottom: 10px;
+        line-height: 1em;
+    }
+
+    .widget {
+        border-bottom: 1px solid rgba( black, 0.05 );
+        padding: 15px;
+        margin: 0;
+
+        &:last-child {
+            border: none;
+        }
+    }
+
+    p {
+        margin-bottom: 10px;
+    }
+}
+
+/* ==========================================================================
+   The actual navigation
+   ========================================================================== */
+
+.mobile-nav-area {
+    .widget_nav_menu {
+        padding: 0;
+        border: none;
+        background-color: rgba( black, 0.05 );
+
+        .widgettitle {
+            padding: 10px;
+            margin: 0;
+        }
+
+        ul.menu > li {
+            display: block;
+            margin: 0;
+            padding: 0;
+            border-bottom: 1px solid rgba( black, 0.05 );
+        }
+
+        ul.menu > li > a {
+            padding: 10px 15px;
+            display: block;
+            color: #333;
+        }
+
+        li.menu-item-has-children {
+            > a:after {
+                font-family: 'Dashicons';
+                content: "\f347";
+                float: right;
+                opacity: 0.3;
+                transition: 0.3s all;
+            }
+
+            &.active {
+                > a:after {
+                    transform: rotate( 180deg );
+                    opacity: 1;
+                }
+            }
+        }
+
+        li.menu-item-has-children.active {
+            background-color: rgba( black, 0.05 );
+        }
+
+        a:focus {
+            outline: none;
+        }
+
+        ul.menu .sub-menu > li {
+            margin: 0;
+            padding: 0;
+
+            a {
+                display: block;
+            }
+        }
+
+        ul.menu > li > .sub-menu > li:last-child > a {
+            padding-bottom: 10px;
+        }
+
+        ul.menu .sub-menu > li > a {
+            padding: 3px 15px;
+            color: rgba( #333, 0.7 );
+        }
+    }
+}

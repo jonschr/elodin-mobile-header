@@ -1,0 +1,21 @@
+
+/* ==========================================================================
+   Hide parts of the site we don't want to show
+   ========================================================================== */
+@include rbmh-mobile {
+    body {
+        .menu-toggle,
+        .nav-primary,
+        .site-header {
+            display: none;
+        }
+    }
+}
+@include rbmh-notmobile {
+    body {
+        .mobile-after-header-widget-area,
+        .mobile-header-wrapper {
+            display: none;
+        }
+    }
+}

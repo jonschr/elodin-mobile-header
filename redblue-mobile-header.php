@@ -40,12 +40,16 @@ function rbmn_scripts_styles() {
     //* Enqueue main style
     wp_enqueue_style( 'rbmn-style', plugin_dir_url( __FILE__ ) . '/css/rbmn-style.css' );
 
-    //* Enqueue main script
-    wp_enqueue_script( 'slideout', plugin_dir_url( __FILE__ ) . '/slideout/dist/slideout.min.js', 'jquery' );
-    wp_enqueue_script( 'slideout-init', plugin_dir_url( __FILE__ ) . '/js/slideout-init.js', array( 'jquery', 'slideout' ) );
+    wp_enqueue_script( 'jquery' );
 
-    //* Enqueue slideout styles
-    wp_enqueue_style( 'slideout-style', plugin_dir_url( __FILE__ ) . '/slideout/index.css' );
+    wp_enqueue_script( 'slideout', plugin_dir_url( __FILE__ ) . '/js/slide-menus.js', 'jquery' );
+
+    //* Enqueue main script
+    // wp_enqueue_script( 'slideout', plugin_dir_url( __FILE__ ) . '/slideout/dist/slideout.min.js', 'jquery' );
+    // wp_enqueue_script( 'slideout-init', plugin_dir_url( __FILE__ ) . '/js/slideout-init.js', array( 'jquery', 'slideout' ) );
+    //
+    // //* Enqueue slideout styles
+    // wp_enqueue_style( 'slideout-style', plugin_dir_url( __FILE__ ) . '/slideout/index.css' );
 
 }
 
@@ -61,7 +65,7 @@ function rbmn_add_widget_areas() {
     genesis_register_sidebar( array(
         'id'			=> 'mobile-header',
         'name'		  => __( 'Mobile header', 'rbmn' ),
-        'description'   => __( 'This area displays next to the hamburger. Keep this extremely short. If a logo is used, its height will be constrained.', 'rbmn' ),
+        'description'   => __( 'This area displays next to the hamburger. Keep this extremely short. If a logo is used, its height will be constrained. Recommended usage: <div style="background-image:url(http://yoursite.com/yourlogo.svg);" class="logo"></div>', 'rbmn' ),
     ) );
     genesis_register_sidebar( array(
         'id'			=> 'mobile-after-header',
@@ -69,19 +73,45 @@ function rbmn_add_widget_areas() {
         'description'   => __( 'This area appears below the header. Completely optional, but this area could show a phone number or other basic information you\'d like to show below the nav menu.', 'rbmn' ),
     ) );
     genesis_register_sidebar( array(
-        'id'			=> 'mobile-nav',
-        'name'		  => __( 'Mobile navigation area', 'rbmn' ),
-        'description'   => __( 'This area displays after the hamburger is clicked. You can add multiple menus, if you like, and they\'ll display as one menu. Text or social icons are fine too.', 'rbmn' ),
+        'id'			=> 'mobile-nav-left',
+        'name'		  => __( 'Left mobile navigation area', 'rbmn' ),
+        'description'   => __( 'This area displays after the left hamburger is clicked. You can add multiple menus, if you like, and they\'ll display as one menu. Text or social icons are fine too.', 'rbmn' ),
+    ) );
+    genesis_register_sidebar( array(
+        'id'			=> 'mobile-nav-right',
+        'name'		  => __( 'Right mobile navigation area', 'rbmn' ),
+        'description'   => __( 'This area displays after the right hamburger is clicked. You can add multiple menus, if you like, and they\'ll display as one menu. Text or social icons are fine too.', 'rbmn' ),
     ) );
 }
 
-add_action( 'genesis_before', 'rbmn_add_mobile_nav_button', 0 );
+add_action( 'genesis_before', 'rbmn_output_menus', 0 );
+function rbmn_output_menus() {
+
+    genesis_widget_area( 'mobile-nav-left', array(
+        'before' => '<div class="slide-left slide-menu"><div class="mobile-nav-area">',
+        'after' => '</div></div>',
+    ) );
+
+    genesis_widget_area( 'mobile-nav-right', array(
+        'before' => '<div class="slide-right slide-menu"><div class="mobile-nav-area">',
+        'after' => '</div></div>',
+    ) );
+
+}
+
+add_action( 'genesis_before', 'rbmn_add_mobile_nav_button', 5 );
 function rbmn_add_mobile_nav_button() {
 
-    //* We open 'main' here and will close it after everything
-    echo '<main id="panel">';
+    echo '<div class="body-wrapper">';
+
+        //* We open 'main' here and will close it after everything
         echo '<div class="mobile-header-wrapper">';
-            echo '<button class="toggle-button panel-toggle">☰</button>';
+
+            if ( is_active_sidebar( 'mobile-nav-left' ) )
+                echo '<a href="#" class="open-left open-menu"><span></span><span></span><span></span></a>';
+
+            if ( is_active_sidebar( 'mobile-nav-right' ) )
+                echo '<a href="#" class="open-right open-menu"><span></span><span></span><span></span></a>';
 
             genesis_widget_area( 'mobile-header', array(
                 'before' => '<div class="mobile-header-widget-area">',
@@ -99,18 +129,10 @@ function rbmn_add_mobile_nav_button() {
 
 }
 
-add_action( 'genesis_after', 'rbmn_close_panel', 99 );
-function rbmn_close_panel() {
-    echo '</main>';
 
-    echo '<nav id="menu">';
-        echo '<div class="menu-wrapper">';
+add_action( 'genesis_after', 'rbmn_close_body_container_markup', 99 );
+function rbmn_close_body_container_markup() {
 
-            genesis_widget_area( 'mobile-nav', array(
-                'before' => '<div class="mobile-nav-area">',
-                'after' => '</div>',
-            ) );
-
-        echo '</div>';
-    echo '</nav>';
+        echo '<div class="slide-overlay"></div>';
+    echo '</div>'; // .body-container
 }

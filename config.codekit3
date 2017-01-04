@@ -9,6 +9,58 @@
 	],
 "creatorBuild": "25479",
 "files": {
+	"\/css\/_header.scss": {
+		"aP": 0,
+		"bl": 0,
+		"dP": 10,
+		"dS": 0,
+		"ft": 4,
+		"ma": 0,
+		"oA": 1,
+		"oAP": "\/css\/_header.css",
+		"oF": 0,
+		"oS": 0,
+		"uL": 1
+		},
+	"\/css\/_mobile_hide.scss": {
+		"aP": 0,
+		"bl": 0,
+		"dP": 10,
+		"dS": 0,
+		"ft": 4,
+		"ma": 0,
+		"oA": 1,
+		"oAP": "\/css\/_mobile_hide.css",
+		"oF": 0,
+		"oS": 0,
+		"uL": 1
+		},
+	"\/css\/_nav.scss": {
+		"aP": 0,
+		"bl": 0,
+		"dP": 10,
+		"dS": 0,
+		"ft": 4,
+		"ma": 0,
+		"oA": 1,
+		"oAP": "\/css\/_nav.css",
+		"oF": 0,
+		"oS": 0,
+		"uL": 1
+		},
+	"\/css\/_slide_section_layout.scss": {
+		"aP": 0,
+		"bl": 0,
+		"dP": 10,
+		"dS": 0,
+		"ft": 4,
+		"ma": 0,
+		"oA": 1,
+		"oAP": "\/css\/_slide_section_layout.css",
+		"oF": 0,
+		"oS": 0,
+		"uL": 1
+		},
 	"\/css\/rbmn-style.css": {
 		"aP": 0,
 		"bl": 0,
@@ -38,20 +90,20 @@
 		"oS": 3,
 		"uL": 1
 		},
-	"\/js\/min\/slideout-init-min.js": {
+	"\/js\/min\/slide-menus-min.js": {
 		"ft": 64,
 		"mi": 1,
 		"oA": 0,
-		"oAP": "\/js\/min\/min\/slideout-init-min-min.js",
+		"oAP": "\/js\/min\/min\/slide-menus-min-min.js",
 		"oF": 0,
 		"sC": 1,
 		"tS": 0
 		},
-	"\/js\/slideout-init.js": {
+	"\/js\/slide-menus.js": {
 		"ft": 64,
 		"mi": 1,
 		"oA": 0,
-		"oAP": "\/js\/min\/slideout-init-min.js",
+		"oAP": "\/js\/min\/slide-menus-min.js",
 		"oF": 0,
 		"sC": 1,
 		"tS": 0
@@ -61,175 +113,6 @@
 		"oA": 2,
 		"oAP": "\/redblue-mobile-header.php",
 		"oF": 0
-		},
-	"\/slideout\/.gitignore": {
-		"ft": 8192,
-		"oA": 2,
-		"oAP": "\/slideout\/.gitignore",
-		"oF": 0
-		},
-	"\/slideout\/.jshintrc": {
-		"ft": 8192,
-		"oA": 2,
-		"oAP": "\/slideout\/.jshintrc",
-		"oF": 0
-		},
-	"\/slideout\/.travis.yml": {
-		"ft": 8192,
-		"oA": 2,
-		"oAP": "\/slideout\/.travis.yml",
-		"oF": 0
-		},
-	"\/slideout\/bower.json": {
-		"ft": 524288,
-		"oA": 1,
-		"oAP": "\/slideout\/bower-min.json",
-		"oF": 0,
-		"oO": 0,
-		"oS": 1
-		},
-	"\/slideout\/browserify.js": {
-		"ft": 64,
-		"mi": 1,
-		"oA": 0,
-		"oAP": "\/slideout\/min\/browserify-min.js",
-		"oF": 0,
-		"sC": 1,
-		"tS": 0
-		},
-	"\/slideout\/component.json": {
-		"ft": 524288,
-		"oA": 1,
-		"oAP": "\/slideout\/component-min.json",
-		"oF": 0,
-		"oO": 0,
-		"oS": 1
-		},
-	"\/slideout\/CONTRIBUTING.md": {
-		"cS": 0,
-		"eF": 1,
-		"eL": 1,
-		"eLB": 0,
-		"ema": 1,
-		"eSQ": 1,
-		"ft": 4096,
-		"oA": 0,
-		"oAP": "\/slideout\/CONTRIBUTING.html",
-		"oF": 0,
-		"oFM": 0,
-		"oS": 0,
-		"pHT": 0,
-		"pME": 1,
-		"rFN": 0,
-		"uCM": 0
-		},
-	"\/slideout\/dist\/slideout.js": {
-		"ft": 64,
-		"mi": 1,
-		"oA": 0,
-		"oAP": "\/slideout\/dist\/min\/slideout-min.js",
-		"oF": 0,
-		"sC": 1,
-		"tS": 0
-		},
-	"\/slideout\/dist\/slideout.min.js": {
-		"ft": 64,
-		"mi": 1,
-		"oA": 0,
-		"oAP": "\/slideout\/dist\/min\/slideout.min-min.js",
-		"oF": 0,
-		"sC": 1,
-		"tS": 0
-		},
-	"\/slideout\/index.css": {
-		"aP": 0,
-		"bl": 0,
-		"ft": 16,
-		"ma": 0,
-		"oA": 2,
-		"oAP": "\/slideout\/index-min.css",
-		"oF": 0,
-		"oS": 0
-		},
-	"\/slideout\/index.js": {
-		"ft": 64,
-		"mi": 1,
-		"oA": 0,
-		"oAP": "\/slideout\/min\/index-min.js",
-		"oF": 0,
-		"sC": 1,
-		"tS": 0
-		},
-	"\/slideout\/LICENSE": {
-		"ft": 8192,
-		"oA": 2,
-		"oAP": "\/slideout\/LICENSE",
-		"oF": 0
-		},
-	"\/slideout\/package.json": {
-		"ft": 524288,
-		"oA": 1,
-		"oAP": "\/slideout\/package-min.json",
-		"oF": 0,
-		"oO": 0,
-		"oS": 1
-		},
-	"\/slideout\/README.md": {
-		"cS": 0,
-		"eF": 1,
-		"eL": 1,
-		"eLB": 0,
-		"ema": 1,
-		"eSQ": 1,
-		"ft": 4096,
-		"oA": 0,
-		"oAP": "\/slideout\/README.html",
-		"oF": 0,
-		"oFM": 0,
-		"oS": 0,
-		"pHT": 0,
-		"pME": 1,
-		"rFN": 0,
-		"uCM": 0
-		},
-	"\/slideout\/test\/assets\/menu.png": {
-		"ft": 32768,
-		"iS": 296,
-		"oA": 0,
-		"oAP": "\/slideout\/test\/assets\/menu.png",
-		"oF": 0,
-		"opt": 0
-		},
-	"\/slideout\/test\/index.html": {
-		"ft": 8192,
-		"oA": 2,
-		"oAP": "\/slideout\/test\/index.html",
-		"oF": 0
-		},
-	"\/slideout\/test\/index.right.html": {
-		"ft": 8192,
-		"oA": 2,
-		"oAP": "\/slideout\/test\/index.right.html",
-		"oF": 0
-		},
-	"\/slideout\/test\/test.css": {
-		"aP": 0,
-		"bl": 0,
-		"ft": 16,
-		"ma": 0,
-		"oA": 2,
-		"oAP": "\/slideout\/test\/test-min.css",
-		"oF": 0,
-		"oS": 0
-		},
-	"\/slideout\/test\/test.js": {
-		"ft": 64,
-		"mi": 1,
-		"oA": 0,
-		"oAP": "\/slideout\/test\/min\/test-min.js",
-		"oF": 0,
-		"sC": 1,
-		"tS": 0
 		}
 	},
 "hooks": [

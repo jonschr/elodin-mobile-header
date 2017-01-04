@@ -1,0 +1,189 @@
+
+/* ==========================================================================
+   Widget area spacing
+   ========================================================================== */
+
+/*
+   Header wrapper
+   ========================================================================== */
+
+body .menu-wrapper {
+    background-color: #f7f7f7;
+    min-height: 120vh;
+    overflow-y: auto;
+    @include rbmh-notmobile {
+        min-height: 100vh;
+    }
+}
+
+.mobile-header-wrapper {
+    background-color: #333;
+    z-index: 100;
+    height: 42px;
+    margin-top: -42px;
+    position: fixed;
+    width: 100%;
+
+    a.open-left,
+    a.open-right {
+        color: white;
+
+        &:focus {
+            outline: none;
+        }
+    }
+
+    a.open-left {
+        float: left;
+    }
+
+    a.open-right {
+        float: right;
+    }
+
+}
+
+.admin-bar .mobile-header-wrapper {
+    @media( max-width: 600px ) {
+        position: relative;
+    }
+}
+
+/*
+   Header widget area
+   ========================================================================== */
+
+.mobile-header-widget-area {
+    color: white;
+    padding: 0 0 0 10px;
+    line-height: 42px;
+    float: left;
+    text-transform: uppercase;
+    font-size: 15px;
+    letter-spacing: 1px;
+
+    .logo {
+        height: 42px;
+        width: 280px;
+        background-position: left center;
+        background-repeat: no-repeat;
+        display: block;
+    }
+
+    .widget {
+        margin: 0;
+    }
+
+    p {
+        margin: 0 !important;
+        max-height: 42px;
+    }
+
+    img {
+        max-height: 32px;
+        margin-top: 5px;
+    }
+}
+
+/*
+   After header widget area
+   ========================================================================== */
+
+.mobile-after-header-widget-area {
+    padding: 10px 0 0;
+    background-color: #222;
+    font-size: 15px;
+    line-height: 1.2em;
+    color: white;
+
+    .widget {
+        margin: 0;
+
+        p {
+            margin-bottom: 5px;
+
+            &:last-child {
+                margin-bottom: 0;
+            }
+        }
+
+        line-height: 1.2em;
+    }
+
+    .widgettitle {
+        margin-bottom: 5px;
+    }
+}
+
+
+/* ==========================================================================
+   Open icons
+   ========================================================================== */
+
+.open-menu {
+    position: relative;
+    // margin: 50px auto;
+    transform: rotate(0deg);
+    transition: 0.5s ease-in-out;
+    cursor: pointer;
+    padding: 0 15px;
+    width: 22px;
+    max-width: 10%;
+    display: block;
+    height: 36px;
+    margin: 11px 10px 0 10px;
+    box-sizing: border-box;
+
+    &.open-left {
+        margin-right: 0px;
+    }
+
+    &.open-right {
+        margin-left: 0px;
+    }
+}
+
+.open-menu span {
+    display: block;
+    position: absolute;
+    height: 4px;
+    width: 100%;
+    background: white;
+    border-radius: 0;
+    opacity: 1;
+    left: 0;
+    transform: rotate(0deg);
+    transition: 0.5s ease-in-out;
+}
+
+.open-menu span:nth-child(1) {
+    top: 0;
+    transform-origin: left center;
+}
+
+.open-menu span:nth-child(2) {
+    top: 8px;
+    transform-origin: left center;
+}
+
+.open-menu span:nth-child(3) {
+    top: 16px;
+    transform-origin: left center;
+}
+
+.open-menu.closed span:nth-child(1) {
+    transform: rotate(45deg);
+    top: -3px;
+    left: 4px;
+}
+
+.open-menu.closed span:nth-child(2) {
+    width: 0;
+    opacity: 0;
+}
+
+.open-menu.closed span:nth-child(3) {
+    transform: rotate(-45deg);
+    top: 18px;
+    left: 4px;
+}

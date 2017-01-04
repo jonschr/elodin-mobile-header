@@ -1,18 +1,34 @@
 jQuery(document).ready(function( $ ) {
 
-    //* Set up the slideout
-    var slideout = new Slideout({
-        'panel': document.getElementById('panel'),
-        'menu': document.getElementById('menu'),
-        'padding': 256,
-        'tolerance': 70
-    });
+    $(".open-left").click(function() {
+	    $(".slide-left").toggleClass("show");
+        $(".open-left").toggleClass("closed");
+	    $("body").toggleClass("menu-is-active push-left");
+	});
 
-    //* Toggle button
-    document.querySelector( '.toggle-button' ).addEventListener( 'click', function() {
-        $( 'slideout-menu' ).css( "margin-left", "-256px" );
-        slideout.toggle();
+	$(".open-right").click(function() {
+	    $(".slide-right").toggleClass("show");
+        $(".open-right").toggleClass("closed");
+	    $("body").toggleClass("menu-is-active push-right");
+	});
 
+	$(".slide-overlay").click(function() {
+	    $(".slide-right").removeClass("show");
+	    $(".slide-left").removeClass("show");
+        $(".open-left").removeClass("closed");
+        $(".open-right").removeClass("closed");
+	    $("body").removeClass("menu-is-active push-right push-left");
+	});
+
+    var lastScrollLeft = 0;
+    $(window).scroll(function() {
+        var documentScrollLeft = $(document).scrollLeft();
+        if (lastScrollLeft !== documentScrollLeft) {
+            $(".slide-right").removeClass("show");
+    	    $(".slide-left").removeClass("show");
+    	    $("body").removeClass("menu-is-active push-right push-left");
+            lastScrollLeft = documentScrollLeft;
+        }
     });
 
     //* Set up submenus
@@ -44,4 +60,5 @@ jQuery(document).ready(function( $ ) {
         $( '.sub-menu-level-2', this ).toggle( 'visible' );
         $( this ).toggleClass( 'active' );
     });
+
 });
