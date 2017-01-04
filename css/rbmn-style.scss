@@ -1,0 +1,243 @@
+/* ==========================================================================
+   Hide parts of the site we don't want to show
+   ========================================================================== */
+@media( max-width: 1023px ) {
+    body {
+        .menu-toggle,
+        .nav-primary,
+        .site-header {
+            display: none;
+        }
+    }
+}
+@media( min-width: 1023px ) {
+    body {
+        .mobile-header-wrapper,
+        .mobile-after-header-widget-area {
+            display: none;
+        }
+    }
+}
+
+/* ==========================================================================
+   Specific styles for slideout
+   ========================================================================== */
+
+div.clear {
+    clear: both;
+    width: 100%;
+    float: none;
+}
+
+#panel button.panel-toggle {
+    padding: 8px 15px;
+    font-size: 25px;
+    border-right: 1px solid rgba( black, 0.07 );
+    background-color: rgba( black, 0.1 );
+    float: left;
+
+    &:focus {
+        background-color: rgba( black, 0.15 );
+        outline: none;
+    }
+
+    &:hover {
+        background-color: rgba( black, 0.15 );
+    }
+}
+
+#panel {
+    box-shadow: 0 0 30px 0 rgba( black, .1 );
+}
+
+#menu.slideout-menu {
+    overflow-y: auto;
+    background-color: transparent !important;
+}
+
+body .menu-wrapper {
+    background-color: #f7f7f7;
+    min-height: 120vh;
+    overflow-y: auto;
+    @media( min-width: 768px ) {
+        min-height: 100vh;
+    }
+}
+
+.mobile-header-wrapper {
+    background-color: rgba( black, 0.15 );
+    height: 56px;
+}
+
+/* ==========================================================================
+   Widget area spacing
+   ========================================================================== */
+
+/*
+   Header widget area
+   ========================================================================== */
+
+.mobile-header-widget-area {
+    color: white;
+    padding: 0 0 0 15px;
+    line-height: 56px;
+    float: left;
+    text-transform: uppercase;
+    font-size: 15px;
+    letter-spacing: 1px;
+
+    .widget {
+        margin: 0;
+    }
+
+    p {
+        margin: 0 !important;
+        max-height: 56px;
+    }
+
+    img {
+        max-height: 46px;
+        margin-top: 5px;
+    }
+}
+
+/*
+   After header widget area
+   ========================================================================== */
+
+.mobile-after-header-widget-area {
+    padding: 10px;
+    background-color: #222;
+    font-size: 15px;
+    line-height: 1.2em;
+    color: white;
+
+    .widget {
+        margin: 0;
+
+        p {
+            margin-bottom: 5px;
+
+            &:last-child {
+                margin-bottom: 0;
+            }
+        }
+
+        line-height: 1.2em;
+    }
+
+    .widgettitle {
+        margin-bottom: 5px;
+    }
+}
+
+/*
+   Mobile nav area
+   ========================================================================== */
+
+.logged-in.admin-bar .mobile-nav-area {
+    padding-top: 32px !important;
+    @media( max-width: 782px ) {
+        padding-top: 46px !important;
+    }
+}
+
+.mobile-nav-area {
+    font-size: 15px;
+    line-height: 1.2em;
+
+    .widgettitle {
+        text-transform: uppercase;
+        font-size: 15px;
+        letter-spacing: 1px;
+        margin-bottom: 10px;
+        line-height: 1em;
+    }
+
+    .widget {
+        border-bottom: 1px solid rgba( black, 0.05 );
+        padding: 15px;
+        margin: 0;
+
+        &:last-child {
+            border: none;
+        }
+    }
+
+    p {
+        margin-bottom: 10px;
+    }
+}
+
+/* ==========================================================================
+   The actual navigation
+   ========================================================================== */
+
+.mobile-nav-area {
+    .widget_nav_menu {
+        padding: 0;
+        border: none;
+        background-color: rgba( black, 0.05 );
+
+        .widgettitle {
+            padding: 10px;
+            margin: 0;
+        }
+
+        ul.menu > li {
+            display: block;
+            margin: 0;
+            padding: 0;
+            border-bottom: 1px solid rgba( black, 0.05 );
+        }
+
+        ul.menu > li > a {
+            padding: 10px 15px;
+            display: block;
+            color: #333;
+        }
+
+        li.menu-item-has-children {
+            > a:after {
+                font-family: 'Dashicons';
+                content: "\f347";
+                float: right;
+                opacity: 0.3;
+                transition: .3s all;
+            }
+
+            &.active {
+                > a:after {
+                    transform: rotate( 180deg );
+                    opacity: 1;
+                }
+            }
+        }
+
+        li.menu-item-has-children.active {
+            background-color: rgba( black, 0.05 );
+        }
+
+        a:focus {
+            outline: none;
+        }
+
+        ul.menu .sub-menu > li {
+            margin: 0;
+            padding: 0;
+
+            a {
+                display: block;
+            }
+        }
+
+        ul.menu > li > .sub-menu > li:last-child > a {
+            padding-bottom: 10px;
+        }
+
+        ul.menu .sub-menu > li > a {
+            padding: 3px 15px;
+            color: rgba( #333, 0.7 );
+        }
+    }
+}
