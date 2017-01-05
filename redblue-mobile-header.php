@@ -40,16 +40,9 @@ function rbmn_scripts_styles() {
     //* Enqueue main style
     wp_enqueue_style( 'rbmn-style', plugin_dir_url( __FILE__ ) . '/css/rbmn-style.css' );
 
+    //* Enqueue scripts
     wp_enqueue_script( 'jquery' );
-
     wp_enqueue_script( 'slideout', plugin_dir_url( __FILE__ ) . '/js/slide-menus.js', 'jquery' );
-
-    //* Enqueue main script
-    // wp_enqueue_script( 'slideout', plugin_dir_url( __FILE__ ) . '/slideout/dist/slideout.min.js', 'jquery' );
-    // wp_enqueue_script( 'slideout-init', plugin_dir_url( __FILE__ ) . '/js/slideout-init.js', array( 'jquery', 'slideout' ) );
-    //
-    // //* Enqueue slideout styles
-    // wp_enqueue_style( 'slideout-style', plugin_dir_url( __FILE__ ) . '/slideout/index.css' );
 
 }
 
