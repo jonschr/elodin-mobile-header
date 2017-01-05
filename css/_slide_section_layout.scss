@@ -6,7 +6,7 @@
 .body-wrapper {
     @include rbmh-mobile {
         transition: transform 0.5s ease;
-        // transform: translateX( 0px );
+        transform: translateZ( 0px );
         padding-top: 42px;
     }
 }
@@ -21,12 +21,12 @@ body.menu-is-active {
     }
 
     &.push-left .body-wrapper {
-        transform: translateX( 300px );
+        transform: translateX( 300px ) translateZ( 0 );
         // overflow-y: hidden !important;
     }
 
     &.push-right .body-wrapper {
-        transform: translateX( -300px );
+        transform: translateX( -300px ) translateZ( 0 );
         // overflow-y: hidden !important;
     }
 
@@ -62,11 +62,12 @@ body.menu-is-active {
     min-height: 100vh;
     width: 300px;
     transition: 0.5s all ease;
-    overflow-y: scroll;
-    overflow-x: hidden;
     background-color: rgba( black, 0.05 );
     padding: 0;
     opacity: 0;
+    overflow-x: hidden;
+    overflow-y: scroll; /* has to be scroll, not auto */
+    -webkit-overflow-scrolling: touch;
 
     &::-webkit-scrollbar {
         display: none;
@@ -74,21 +75,21 @@ body.menu-is-active {
 }
 
 .slide-left {
-    transform: translateX( -300px );
+    transform: translateX( -300px ) translateZ( 0 );
     box-shadow: inset -10px 0 20px -10px rgba( black, 0.15 );
 
     &.show {
-        transform: translateX( 0px );
+        transform: translateX( 0px ) translateZ( 0 );
         opacity: 1;
     }
 }
 
 .slide-right {
-    transform: translateX( 300px );
+    transform: translateX( 300px ) translateZ( 0 );
     right: 0;
 
     &.show {
-        transform: translateX( 0px );
+        transform: translateX( 0px ) translateZ( 0 );
         opacity: 1;
     }
 }
