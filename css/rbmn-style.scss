@@ -1,7 +1,7 @@
 $mobile-width-section: 1023px;
 
 @mixin rbmh-mobile {
-	 @media (max-width: #{$mobile-width-section}){
+	 @media (max-width: #{$mobile-width-section - 1}){
 		@content;
 	}
 }
