@@ -111,15 +111,17 @@ function rbmn_add_mobile_nav_button() {
                 'after' => '</div>',
         	) );
 
-            echo '<div class="clear"></div>';
+        echo '<div class="clear"></div>';
 
-        echo '</div>';
+    echo '</div>';
+}
 
-        genesis_widget_area( 'mobile-after-header', array(
-            'before' => '<div class="clear"></div><div class="mobile-after-header-widget-area">',
-            'after' => '</div>',
-        ) );
-
+add_action( 'genesis_before', 'rbmn_add_after_header', 7 );
+function rbmn_add_after_header() {
+    genesis_widget_area( 'mobile-after-header', array(
+        'before' => '<div class="clear"></div><div class="mobile-after-header-widget-area">',
+        'after' => '</div>',
+    ) );
 }
 
 
