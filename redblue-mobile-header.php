@@ -26,6 +26,9 @@ if ( !defined( 'ABSPATH' ) ) {
 // Plugin directory
 define( 'REDBLUE_MOBILE_NAV', dirname( __FILE__ ) );
 
+if ( !function_exists( 'genesis_register_sidebar' ) )
+    return;
+
 
 //* Enqueue Scripts and Styles (this should happen in the normal order)
 add_action( 'wp_enqueue_scripts', 'rbmn_scripts_styles' );
