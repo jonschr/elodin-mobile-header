@@ -39,24 +39,30 @@ jQuery(document).ready(function( $ ) {
     $( '.mobile-nav-area .menu > li > .sub-menu .sub-menu' ).addClass( 'sub-menu-level-2' );
 
     //* Set up classes on parents
-    $( '.mobile-nav-area .menu > li.menu-item-has-children' ).addClass( 'parent-level-1' );
-    $( '.mobile-nav-area .menu > li.menu-item-has-children li.menu-item-has-children' ).addClass( 'parent-level-2' );
+    $( '.mobile-nav-area .menu > li.menu-item-has-children, .mobile-nav-area .menu > li.menu-item-object-custom' ).addClass( 'parent-level-1' );
+    $( '.mobile-nav-area .menu > li.menu-item-has-children li.menu-item-has-children, .mobile-nav-area .menu > li.menu-item-object-custom li.menu-item-object-custom, .mobile-nav-area .menu > li.menu-item-object-custom li.menu-item-has-children, .mobile-nav-area .menu > li.menu-item-has-children li.menu-item-object-custom' ).addClass( 'parent-level-2' );
 
     //* Prevent the default behavior on all levels
-    $( '.mobile-nav-area .menu > .menu-item-has-children > a' ).click(function() {
+    $( '.mobile-nav-area .menu > .menu-item-has-children > a, .mobile-nav-area .menu > .menu-item-object-custom > a' ).click(function() {
+        
         event.preventDefault();
+
     });
 
     //* Level 1 submenu effect
-    $( '.menu-item-has-children.parent-level-1' ).click(function() {
+    $( '.menu-item-has-children.parent-level-1, .menu-item-object-custom.parent-level-1' ).click(function() {
+        
         event.stopPropagation(); // stop propagation to prevent the parent level effect being applied
+        
         $( '.sub-menu-level-1', this ).toggle( 'visible' );
         $( this ).toggleClass( 'active' );
     });
 
     //* Level 2 submenu effect
-    $( '.menu-item-has-children.parent-level-2' ).click(function() {
+    $( '.menu-item-has-children.parent-level-2, .menu-item-object-custom.parent-level-2' ).click(function() {
+        
         event.stopPropagation(); // stop propagation to prevent the parent level effect being applied
+        
         $( '.sub-menu-level-2', this ).toggle( 'visible' );
         $( this ).toggleClass( 'active' );
     });

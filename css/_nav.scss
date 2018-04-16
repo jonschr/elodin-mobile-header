@@ -15,7 +15,7 @@
     }
 
     .widget {
-        border-bottom: 1px solid rgba( black, 0.05 );
+        border-bottom: 1px solid rgba(black, 0.05);
         padding: 15px;
         margin: 0;
 
@@ -37,7 +37,7 @@
     .widget_nav_menu {
         padding: 0;
         border: none;
-        background-color: rgba( black, 0.05 );
+        background-color: rgba(black, 0.05);
 
         .widgettitle {
             padding: 10px;
@@ -48,7 +48,7 @@
             display: block;
             margin: 0;
             padding: 0;
-            border-bottom: 1px solid rgba( black, 0.05 );
+            border-bottom: 1px solid rgba(black, 0.05);
         }
 
         ul.menu > li > a {
@@ -57,7 +57,8 @@
             color: #333;
         }
 
-        li.menu-item-has-children {
+        li.menu-item-has-children,
+        li.menu-item-object-custom {
             > a:after {
                 font-family: 'Dashicons';
                 content: "\f347";
@@ -68,14 +69,15 @@
 
             &.active {
                 > a:after {
-                    transform: rotate( 180deg );
+                    transform: rotate(180deg);
                     opacity: 1;
                 }
             }
         }
 
-        li.menu-item-has-children.active {
-            background-color: rgba( black, 0.05 );
+        li.menu-item-has-children.active,
+        li.menu-item-object-custom.active {
+            background-color: rgba(black, 0.05);
         }
 
         a:focus {
@@ -97,7 +99,7 @@
 
         ul.menu .sub-menu > li > a {
             padding: 3px 15px;
-            color: rgba( #333, 0.7 );
+            color: rgba(#333, 0.7);
         }
     }
 }
