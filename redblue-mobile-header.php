@@ -94,25 +94,25 @@ function rbmn_output_menus() {
 add_action( 'genesis_before', 'rbmn_add_mobile_nav_button', 5 );
 function rbmn_add_mobile_nav_button() {
 
-    echo '<div class="body-wrapper">';
+    //* We open 'main' here and will close it after everything
+    echo '<div class="mobile-header-wrapper">';
 
-        //* We open 'main' here and will close it after everything
-        echo '<div class="mobile-header-wrapper">';
+        if ( is_active_sidebar( 'mobile-nav-left' ) )
+            echo '<a href="#" class="open-left open-menu"><span></span><span></span><span></span></a>';
 
-            if ( is_active_sidebar( 'mobile-nav-left' ) )
-                echo '<a href="#" class="open-left open-menu"><span></span><span></span><span></span></a>';
+        if ( is_active_sidebar( 'mobile-nav-right' ) )
+            echo '<a href="#" class="open-right open-menu"><span></span><span></span><span></span></a>';
 
-            if ( is_active_sidebar( 'mobile-nav-right' ) )
-                echo '<a href="#" class="open-right open-menu"><span></span><span></span><span></span></a>';
-
-            genesis_widget_area( 'mobile-header', array(
-                'before' => '<div class="mobile-header-widget-area">',
-                'after' => '</div>',
-        	) );
+        genesis_widget_area( 'mobile-header', array(
+            'before' => '<div class="mobile-header-widget-area">',
+            'after' => '</div>',
+    	) );
 
         echo '<div class="clear"></div>';
 
     echo '</div>';
+    echo '<div class="body-wrapper">';
+
 }
 
 add_action( 'genesis_before', 'rbmn_add_after_header', 7 );
