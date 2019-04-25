@@ -1,11 +1,11 @@
 <?php
 /*
 	Plugin Name: Genesis Simple Mobile Navigation
-	Plugin URI: http://redblue.us
+	Plugin URI: http://elod.in
 	Description: A plugin which handles mobile menus a bit differently than typical themes
-	Version: 0.1
+	Version: 0.1.1
     Author: Jon Schroeder
-    Author URI: http://redblue.us
+    Author URI: http://elod.in
 
     This program is free software; you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
