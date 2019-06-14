@@ -1,9 +1,9 @@
 <?php
 /*
-	Plugin Name: Genesis Simple Mobile Navigation
+	Plugin Name: Elodin Simple Mobile Navigation
 	Plugin URI: http://elod.in
 	Description: A plugin which handles mobile menus a bit differently than typical themes
-	Version: 0.1.1
+	Version: 0.1.2
     Author: Jon Schroeder
     Author URI: http://elod.in
 
