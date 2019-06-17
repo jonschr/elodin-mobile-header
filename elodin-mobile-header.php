@@ -3,7 +3,7 @@
 	Plugin Name: Elodin Simple Mobile Navigation
 	Plugin URI: http://elod.in
 	Description: A plugin which handles mobile menus a bit differently than typical themes
-	Version: 0.1.2
+	Version: 0.2.0
     Author: Jon Schroeder
     Author URI: http://elod.in
 
@@ -24,7 +24,7 @@ if ( !defined( 'ABSPATH' ) ) {
 }
 
 // Plugin directory
-define( 'REDBLUE_MOBILE_NAV', dirname( __FILE__ ) );
+define( 'ELODIN_MOBILE_NAV', dirname( __FILE__ ) );
 
 //* Enqueue Scripts and Styles (this should happen in the normal order)
 add_action( 'wp_enqueue_scripts', 'rbmn_scripts_styles' );
@@ -42,6 +42,7 @@ function rbmn_scripts_styles() {
     //* Enqueue scripts
     wp_enqueue_script( 'jquery' );
     wp_enqueue_script( 'slideout', plugin_dir_url( __FILE__ ) . '/js/slide-menus.js', 'jquery' );
+    wp_enqueue_script( 'dropdown', plugin_dir_url( __FILE__ ) . '/js/dropdown-menus.js', 'jquery' );
 
 }
 

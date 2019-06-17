@@ -30,7 +30,7 @@
 }
 
 /* ==========================================================================
-   The actual navigation
+   Control opening and closing
    ========================================================================== */
 
 .mobile-nav-area {
@@ -42,6 +42,20 @@
         .widgettitle {
             padding: 10px;
             margin: 0;
+        }
+
+        ul li {
+            list-style: none;
+        }
+
+        a {
+            text-decoration: none;
+
+            &:hover,
+            &:focus,
+            &:active {
+                text-decoration: none;
+            }
         }
 
         ul.menu > li {
@@ -57,31 +71,49 @@
             color: #333;
         }
 
-        li.menu-item-has-children,
-        li.dropdown {
+        li.parent {
+            transition: .3s all ease;
+            display: flex;
+            flex-flow: column;
+
             > a:after {
                 font-family: 'Dashicons';
                 content: "\f347";
                 float: right;
                 opacity: 0.3;
-                transition: 0.3s all;
+                transition: 0.3s all ease;
+                z-index: 10;
+            }
+
+            > a {
+                z-index: 10;
+                position: relative;
+            }
+
+            > .sub-menu {
+                transition: .3s all ease;
+                z-index: 5;
+                position: relative;
+            }
+
+            &.inactive > .sub-menu {
+                max-height: 0;
+                opacity: 0;
+                pointer-events: none;
+            }
+
+            &.active > .sub-menu {
+                opacity: 1;
+                max-height: 1000px;
             }
 
             &.active {
                 > a:after {
                     transform: rotate(180deg);
                     opacity: 1;
+                    pointer-events: none;
                 }
             }
-        }
-
-        li.menu-item-has-children.active,
-        li.menu-item-object-custom.active {
-            background-color: rgba(black, 0.05);
-        }
-
-        a:focus {
-            outline: none;
         }
 
         ul.menu .sub-menu > li {

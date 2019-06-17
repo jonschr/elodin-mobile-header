@@ -1,0 +1,1 @@
+jQuery(document).ready(function(e){e(".mobile-nav-area .menu li.menu-item-has-children").addClass("parent"),e(".mobile-nav-area .menu li.menu-item-has-children").addClass("inactive"),e(".parent > a").click(function(){event.preventDefault()}),e(".parent > a").click(function(){e(this).parent().toggleClass("active"),e(this).parent().toggleClass("inactive")})});
