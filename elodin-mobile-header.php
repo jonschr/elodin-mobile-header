@@ -3,7 +3,7 @@
 	Plugin Name: Elodin Simple Mobile Navigation
 	Plugin URI: http://elod.in
 	Description: A plugin which handles mobile menus a bit differently than typical themes
-	Version: 0.2.1
+	Version: 0.2.2
     Author: Jon Schroeder
     Author URI: http://elod.in
 
@@ -29,7 +29,7 @@ if ( !defined( 'ABSPATH' ) ) {
 define( 'ELODIN_MOBILE_NAV', dirname( __FILE__ ) );
 
 // Define the version of the plugin
-define ( 'EMH_VERSION', '0.2.1' );
+define ( 'EMH_VERSION', '0.2.2' );
 
 //* Enqueue Scripts and Styles (this should happen in the normal order)
 add_action( 'wp_enqueue_scripts', 'emh_scripts_styles' );
