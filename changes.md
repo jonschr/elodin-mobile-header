@@ -1,3 +1,7 @@
+#### 0.2.3 / 2019-06-21
+* Add mobile_nav_right_before and mobile_nav_right_after actions
+* Add mobile_nav_left_before and mobile_nav_left_after actions
+
 #### 0.2.2 / 2019-06-17
 * Add versioning to stylesheets/scripts
 * Add changelog

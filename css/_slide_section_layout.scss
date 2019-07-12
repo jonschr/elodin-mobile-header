@@ -10,6 +10,12 @@
     }
 }
 
+body.admin-bar .body-wrapper {
+    @include rbmh-mobile {
+        padding-top: 0;
+    }
+}
+
 .mobile-header-wrapper {
     transition: transform 0.5s ease;
 }

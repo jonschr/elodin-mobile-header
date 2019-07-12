@@ -34,7 +34,21 @@
    ========================================================================== */
 
 .mobile-nav-area {
-    .widget_nav_menu {
+    ul li {
+        list-style: none;
+    }
+
+    a {
+        text-decoration: none;
+
+        &:hover,
+        &:focus,
+        &:active {
+            text-decoration: none;
+        }
+    }
+
+    .widget {
         padding: 0;
         border: none;
         background-color: rgba(black, 0.05);
@@ -43,95 +57,81 @@
             padding: 10px;
             margin: 0;
         }
+    }
 
-        ul li {
-            list-style: none;
+    ul.menu > li {
+        display: block;
+        margin: 0;
+        padding: 0;
+        border-bottom: 1px solid rgba(black, 0.05);
+    }
+
+    ul.menu > li > a {
+        padding: 10px 15px;
+        display: block;
+        color: #333;
+    }
+
+    li.parent {
+        transition: .3s all ease;
+        display: flex;
+        flex-flow: column;
+
+        > a:after {
+            font-family: 'Dashicons';
+            content: "\f347";
+            float: right;
+            opacity: 0.3;
+            transition: 0.3s all ease;
+            z-index: 10;
         }
 
-        a {
-            text-decoration: none;
-
-            &:hover,
-            &:focus,
-            &:active {
-                text-decoration: none;
-            }
+        > a {
+            z-index: 10;
+            position: relative;
         }
 
-        ul.menu > li {
-            display: block;
-            margin: 0;
-            padding: 0;
-            border-bottom: 1px solid rgba(black, 0.05);
-        }
-
-        ul.menu > li > a {
-            padding: 10px 15px;
-            display: block;
-            color: #333;
-        }
-
-        li.parent {
+        > .sub-menu {
             transition: .3s all ease;
-            display: flex;
-            flex-flow: column;
+            z-index: 5;
+            position: relative;
+        }
 
+        &.inactive > .sub-menu {
+            max-height: 0;
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        &.active > .sub-menu {
+            opacity: 1;
+            max-height: 1000px;
+        }
+
+        &.active {
             > a:after {
-                font-family: 'Dashicons';
-                content: "\f347";
-                float: right;
-                opacity: 0.3;
-                transition: 0.3s all ease;
-                z-index: 10;
-            }
-
-            > a {
-                z-index: 10;
-                position: relative;
-            }
-
-            > .sub-menu {
-                transition: .3s all ease;
-                z-index: 5;
-                position: relative;
-            }
-
-            &.inactive > .sub-menu {
-                max-height: 0;
-                opacity: 0;
+                transform: rotate(180deg);
+                opacity: 1;
                 pointer-events: none;
             }
-
-            &.active > .sub-menu {
-                opacity: 1;
-                max-height: 1000px;
-            }
-
-            &.active {
-                > a:after {
-                    transform: rotate(180deg);
-                    opacity: 1;
-                    pointer-events: none;
-                }
-            }
         }
+    }
 
-        ul.menu .sub-menu > li {
-            margin: 0;
-            padding: 0;
+    ul.menu .sub-menu > li {
+        margin: 0;
+        padding: 0;
 
-            a {
-                display: block;
-            }
+        a {
+            display: block;
         }
+    }
 
-        ul.menu > li > .sub-menu > li:last-child > a {
-            padding-bottom: 10px;
-        }
+    ul.menu > li > .sub-menu > li:last-child > a {
+        padding-bottom: 10px;
+    }
 
-        ul.menu .sub-menu > li > a {
-            padding: 3px 15px;
-            color: rgba(#333, 0.7);
-        }
+    ul.menu .sub-menu > li > a {
+        padding: 3px 15px;
+        color: rgba(#333, 0.7);
     }
 }

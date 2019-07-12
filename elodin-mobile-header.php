@@ -3,7 +3,7 @@
 	Plugin Name: Elodin Simple Mobile Navigation
 	Plugin URI: http://elod.in
 	Description: A plugin which handles mobile menus a bit differently than typical themes
-	Version: 0.2.2
+	Version: 0.2.4
     Author: Jon Schroeder
     Author URI: http://elod.in
 
@@ -24,6 +24,10 @@
 if ( !defined( 'ABSPATH' ) ) {
     die( "Sorry, you are not allowed to access this page directly." );
 }
+
+//* Bail if it's not a Genesis child theme
+if ( wp_get_theme( get_template() ) != 'Genesis' ) 
+    return 0;
 
 // Plugin directory
 define( 'ELODIN_MOBILE_NAV', dirname( __FILE__ ) );
@@ -85,15 +89,21 @@ function emh_add_widget_areas() {
 add_action( 'genesis_before', 'emh_output_menus', 0 );
 function emh_output_menus() {
 
-    genesis_widget_area( 'mobile-nav-left', array(
-        'before' => '<div class="slide-left slide-menu"><div class="mobile-nav-area">',
-        'after' => '</div></div>',
-    ) );
+    if ( is_active_sidebar('mobile-nav-left') || has_action( 'mobile_nav_left_before' ) || has_action( 'mobile_nav_left_after' ) ) {
+        echo '<div class="slide-left slide-menu"><div class="mobile-nav-area">';
+            do_action( 'mobile_nav_left_before' );
+            dynamic_sidebar('mobile-nav-left');
+            do_action( 'mobile_nav_left_after' );
+        echo '</div></div>';
+    }
 
-    genesis_widget_area( 'mobile-nav-right', array(
-        'before' => '<div class="slide-right slide-menu"><div class="mobile-nav-area">',
-        'after' => '</div></div>',
-    ) );
+    if ( is_active_sidebar('mobile-nav-right') || has_action( 'mobile_nav_right_before' ) || has_action( 'mobile_nav_right_after' ) ) {
+        echo '<div class="slide-right slide-menu"><div class="mobile-nav-area">';
+            do_action( 'mobile_nav_right_before' );
+            dynamic_sidebar('mobile-nav-right');
+            do_action( 'mobile_nav_right_after' );
+        echo '</div></div>';
+    }
 
 }
 
@@ -103,10 +113,10 @@ function emh_add_mobile_nav_button() {
     //* We open 'main' here and will close it after everything
     echo '<div class="mobile-header-wrapper">';
 
-        if ( is_active_sidebar( 'mobile-nav-left' ) )
+        if ( is_active_sidebar('mobile-nav-left') || has_action( 'mobile_nav_left_before' ) || has_action( 'mobile_nav_left_after' ) )
             echo '<a href="#" class="open-left open-menu"><span></span><span></span><span></span></a>';
 
-        if ( is_active_sidebar( 'mobile-nav-right' ) )
+        if ( is_active_sidebar('mobile-nav-right') || has_action( 'mobile_nav_right_before' ) || has_action( 'mobile_nav_right_after' ) )
             echo '<a href="#" class="open-right open-menu"><span></span><span></span><span></span></a>';
 
         genesis_widget_area( 'mobile-header', array(
@@ -123,6 +133,7 @@ function emh_add_mobile_nav_button() {
 
 add_action( 'genesis_before', 'emh_add_after_header', 7 );
 function emh_add_after_header() {
+
     genesis_widget_area( 'mobile-after-header', array(
         'before' => '<div class="clear"></div><div class="mobile-after-header-widget-area">',
         'after' => '</div>',
