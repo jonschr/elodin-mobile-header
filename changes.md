@@ -1,3 +1,6 @@
+#### 0.2.4 / 2019-07-12
+* Add a conditional to simply bail if it's not a Genesis theme, to avoid a fatal error
+
 #### 0.2.3 / 2019-06-21
 * Add mobile_nav_right_before and mobile_nav_right_after actions
 * Add mobile_nav_left_before and mobile_nav_left_after actions
