@@ -1,3 +1,6 @@
+#### 1.0
+* Add update capabilities
+
 #### 0.2.4 / 2019-07-12
 * Add a conditional to simply bail if it's not a Genesis theme, to avoid a fatal error
 
