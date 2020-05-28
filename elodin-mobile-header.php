@@ -3,7 +3,7 @@
 	Plugin Name: Elodin Simple Mobile Navigation
 	Plugin URI: http://elod.in
 	Description: A plugin which handles mobile menus a bit differently than typical themes
-	Version: 0.2.4
+	Version: 0.2.5
     Author: Jon Schroeder
     Author URI: http://elod.in
 
@@ -33,7 +33,19 @@ if ( wp_get_theme( get_template() ) != 'Genesis' )
 define( 'ELODIN_MOBILE_NAV', dirname( __FILE__ ) );
 
 // Define the version of the plugin
-define ( 'EMH_VERSION', '0.2.2' );
+define ( 'EMH_VERSION', '0.2.5' );
+
+// Updater
+require 'vendor/plugin-update-checker/plugin-update-checker.php';
+$myUpdateChecker = Puc_v4_Factory::buildUpdateChecker(
+	'https://github.com/jonschr/elodin-mobile-header',
+	__FILE__,
+	'elodin-mobile-header'
+);
+
+// Optional: Set the branch that contains the stable release.
+$myUpdateChecker->setBranch('master');
+
 
 //* Enqueue Scripts and Styles (this should happen in the normal order)
 add_action( 'wp_enqueue_scripts', 'emh_scripts_styles' );
